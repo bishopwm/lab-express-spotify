@@ -38,7 +38,7 @@ app.get("/artist-search", (req, res) => {
     spotifyApi
     .searchArtists(req.query.artist)
     .then(data => {
-      console.log(data.body.artists.items[0])
+     // console.log(data.body.artists.items[0])
       let artistName=data.body.artists.items[0].name;
       let artistImage=data.body.artists.items[0].images[0].url
       let artistUrl=data.body.artists.items[0].href
@@ -53,7 +53,7 @@ app.get("/albums/:artistId", (req, res) => {
 
     spotifyApi.getArtistAlbums(req.params.artistId).then(
         function(data) {
-          console.log('Artist albums', data.body);
+         // console.log('Artist albums', data.body);
 
           let albums=data.body.items;
         
@@ -69,10 +69,10 @@ app.get("/albums/:artistId", (req, res) => {
 app.get("/tracks/:albumId", (req, res) => {
     spotifyApi.getAlbumTracks(req.params.albumId, { limit : 5, offset : 1 })
         .then(function(data) {
-            console.log(data.body);
+            
 
             let tracks = data.body.items
-
+            console.log(data.body.items);
             res.render('tracks.hbs', {tracks})
         }, function(err) {
             console.log('Something went wrong!', err);
