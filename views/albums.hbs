@@ -1,8 +1,8 @@
 <h1>Albums!</h1>
 
-{{#each albums}}
-    <li>{{name}}</li>
-    <li><img src={{images.[0].url}} alt=""/></li>
-    <li><a href="/tracks/{{id}}">View Tracks</a></li>
-{{/each}}
+<ul id="list">{{#each albums}}
+    <li class="list-item">{{name}}</li>
+    <li class="list-item"><img src={{images.[0].url}} alt=""/></li>
+    <li class="list-item"><a href="/tracks/{{id}}">View Tracks</a></li>
+{{/each}}</ul>
 
